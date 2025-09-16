@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --color-primary: #0A2A66;
+  --color-white: #fff;
+  --color-mint: #2EC4B6;
+  --color-bg: #F3F4F6;
+  --color-text: #4B5563;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--color-primary);
+}
+
+button, .btn {
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  padding: 0.75em 1.5em;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-mint);
+  color: var(--color-white);
+  border: none;
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+input, select, textarea {
+  font-size: 1rem;
+  padding: 0.75em;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 2px;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(10,42,102,0.04);
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(10,42,102,0.10);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgba(10,42,102,0.06);
+  z-index: 100;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toast {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background: var(--color-mint);
+  color: var(--color-white);
+  padding: 1em 2em;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(10,42,102,0.10);
+  z-index: 9999;
+  font-weight: 500;
+  min-width: 200px;
+  text-align: center;
+}
+
+.empty-state {
+  color: var(--color-text);
+  background: #e5e7eb;
+  border-radius: 8px;
+  padding: 2em;
+  text-align: center;
+  margin: 2em 0;
+}

@@ -1,0 +1,19 @@
+.footer-icit {
+  width: 100%;
+  background: var(--color-primary, #003366);
+  color: #fff;
+  text-align: center;
+  padding: 1.5em 0 1em 0;
+  font-size: 1em;
+  font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+  margin-top: 3em;
+  border-top: 3px solid var(--color-accent, #f9b233);
+}
+.footer-icit a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 0.2em;
+}
+.footer-icit a:hover {
+  color: var(--color-accent, #f9b233);
+}
