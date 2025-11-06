@@ -11,18 +11,31 @@ export default function Navbar() {
           <link rel="icon" type="image/png" href="\wunifl.png" /> WUNIF
         </a>
         <div className="navbar-links" style={{ display: 'flex', gap: '0.5em', flex: 1, justifyContent: 'center' }}>
-          {!user && <a href="/catalogo" className="btn btn-secondary">Catálogo</a>}
-          {user && user.role !== 'admin' && <a href="/" className="btn btn-secondary">Inicio</a>}
-          {user && user.role !== 'admin' && <a href="/carrito" className="btn btn-secondary">Carrito</a>}
-          {user && user.role !== 'admin' && <a href="/perfil" className="btn btn-secondary">Perfil</a>}
-          {user && user.role === 'admin' && <a href="/admin/usuarios" className="btn btn-secondary">Usuarios</a>}
-          {user && user.role === 'admin' && <a href="/admin/productos" className="btn btn-secondary">Productos</a>}
-          {user && user.role === 'admin' && <a href="/admin/stats" className="btn btn-secondary">Estadísticas</a>}
+          {user && user.role !== 'admin' && (
+            <>
+              <a href="/catalogo" className="btn btn-secondary">Catálogo</a>
+              <a href="/carrito" className="btn btn-secondary">Carrito</a>
+            </>
+          )}
+          {user && user.role === 'admin' && (
+            <>
+              <a href="/admin/usuarios" className="btn btn-secondary">Usuarios</a>
+              <a href="/admin/productos" className="btn btn-secondary">Productos</a>
+              <a href="/admin/pedidos" className="btn btn-secondary">Pedidos</a>
+              <a href="/admin/stats" className="btn btn-secondary">Estadísticas</a>
+            </>
+          )}
         </div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
         {!user && <a href="/login" className="btn btn-primary">Iniciar sesión</a>}
-        {user && <LogoutButton />}
+        {user && user.role !== 'admin' && (
+          <div className="user-menu">
+            <a href="/dashboard" className="btn btn-primary">Mi panel</a>
+            <LogoutButton />
+          </div>
+        )}
+        {user && user.role === 'admin' && <LogoutButton />}
       </div>
     </nav>
   );

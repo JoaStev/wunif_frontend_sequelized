@@ -28,6 +28,16 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* Fondo animado global */
+  background: linear-gradient(120deg, #0f7bff 0%, #2b8cff 40%, #5bd0ff 100%);
+  background-size: 200% 200%;
+  animation: globalGradientMove 18s ease-in-out infinite;
+}
+
+@keyframes globalGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1 {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import UserSidebar from '../components/UserSidebar';
 
 export default function Perfil() {
   const { user } = useAuth();
@@ -20,28 +21,32 @@ export default function Perfil() {
   if (!perfil) return <div className="empty-state">No se encontró el perfil.</div>;
 
   return (
-    <section className="perfil-container">
-      <h2 className="perfil-title">Mi perfil</h2>
-      <div className="perfil-card">
-        <div className="perfil-avatar-halo">
-          <span>{perfil.estudianteNombre?.[0]}</span>
+    <div className="user-dashboard-grid">
+      <UserSidebar />
+      <section className="user-main">
+        <h2 style={{ marginTop: 0 }}>Mi perfil</h2>
+        <div className="card" style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          <div style={{ width: 96, height: 96, borderRadius: 9999, background: 'linear-gradient(180deg,#e6fffb,#fff)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, color: 'var(--color-primary)', fontWeight: 700 }} aria-hidden>
+            {perfil.estudianteNombre?.[0]}
+          </div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontSize: '1.2em', fontWeight: 700 }}>{perfil.estudianteNombre}</div>
+            <div style={{ color: '#6b7280' }}>{perfil.email}</div>
+          </div>
         </div>
-        <div className="perfil-info">
-          <div className="perfil-nombre">{perfil.estudianteNombre}</div>
-          <div className="perfil-email">{perfil.email}</div>
+
+        <div style={{ marginTop: 16 }} className="card">
+          <h3>Detalles</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            <div><b>Acudiente:</b> {perfil.acudienteNombre} ({perfil.acudienteDocumento})</div>
+            <div><b>Estudiante:</b> {perfil.estudianteNombre} ({perfil.estudianteDocumento})</div>
+            <div><b>Grado/Sección:</b> {perfil.gradoSeccion}</div>
+            <div><b>Dirección:</b> {perfil.direccion}</div>
+            <div><b>Teléfono:</b> {perfil.telefono}</div>
+            <div><b>Email:</b> {perfil.email}</div>
+          </div>
         </div>
-      </div>
-      <div className="perfil-tabs">
-        <button className="perfil-tab active">Datos</button>
-      </div>
-      <div className="perfil-datos-card">
-        <div className="perfil-dato"><b>Acudiente:</b> {perfil.acudienteNombre} ({perfil.acudienteDocumento})</div>
-        <div className="perfil-dato"><b>Estudiante:</b> {perfil.estudianteNombre} ({perfil.estudianteDocumento})</div>
-        <div className="perfil-dato"><b>Grado/Sección:</b> {perfil.gradoSeccion}</div>
-        <div className="perfil-dato"><b>Dirección:</b> {perfil.direccion}</div>
-        <div className="perfil-dato"><b>Teléfono:</b> {perfil.telefono}</div>
-        <div className="perfil-dato"><b>Email:</b> {perfil.email}</div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

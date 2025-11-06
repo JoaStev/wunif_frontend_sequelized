@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1920" height="1080" fill="#0f7bff"/>
+<g opacity="0.7">
+<path d="M0 900L1920 900L1920 1080L0 1080L0 900Z" fill="#2b8cff"/>
+<path d="M0 700L1920 700L1920 900L0 900L0 700Z" fill="#5bd0ff"/>
+<path d="M0 500L1920 500L1920 700L0 700L0 500Z" fill="#2b8cff"/>
+<path d="M0 300L1920 300L1920 500L0 500L0 300Z" fill="#0f7bff"/>
+<path d="M0 0L1920 0L1920 300L0 300L0 0Z" fill="#12263f"/>
+</g>
+<g opacity="0.5">
+<rect x="200" y="400" width="80" height="400" fill="#12263f"/>
+<rect x="400" y="350" width="60" height="450" fill="#213547"/>
+<rect x="600" y="420" width="70" height="380" fill="#274060"/>
+<rect x="800" y="370" width="90" height="430" fill="#12263f"/>
+<rect x="1000" y="410" width="60" height="390" fill="#213547"/>
+<rect x="1200" y="390" width="80" height="410" fill="#274060"/>
+<rect x="1400" y="360" width="70" height="440" fill="#12263f"/>
+<rect x="1600" y="400" width="60" height="400" fill="#213547"/>
+</g>
+</svg>

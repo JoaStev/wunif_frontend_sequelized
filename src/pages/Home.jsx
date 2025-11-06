@@ -14,7 +14,6 @@ const Home = () => {
           Descubre la colección oficial de uniformes del Colegio ICIT. Compra fácil, seguro y con atención personalizada.
         </p>
         <div className="home-hero-btns">
-          <a href="/catalogo" className="icit-btn icit-btn-lg icit-btn-gold">Ver Catálogo</a>
           <a href="/contacto" className="icit-btn icit-btn-lg icit-btn-outline">Contáctanos</a>
         </div>
       </div>
@@ -22,7 +21,7 @@ const Home = () => {
         <div className="home-hero-shape shape-1"></div>
         <div className="home-hero-shape shape-2"></div>
         <div className="home-hero-shape shape-3"></div>
-        <img src="/icit-logo.png" alt="Logo ICIT" className="home-hero-logo" />
+        <img src="/icit-logo.png" />
       </div>
     </section>
   );

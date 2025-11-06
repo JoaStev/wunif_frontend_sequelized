@@ -1,0 +1,110 @@
+/* Home.css - modern, professional hero styles */
+:root{
+  --gold: #caa24a;
+  --dark: #0f1724;
+  --muted: #6b7280;
+  --bg: #f7f8fb;
+}
+
+.home-hero-section{
+  background: linear-gradient(180deg, rgba(12,18,30,0.02), rgba(12,18,30,0.02));
+  padding: 60px 20px;
+}
+
+.home-hero-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: center;
+}
+
+.home-hero-left{
+  padding-right: 10px;
+}
+
+.home-hero-title{
+  font-size: 2.4rem;
+  line-height: 1.05;
+  color: var(--dark);
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.home-hero-sub{
+  display: block;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.home-hero-desc{
+  color: #374151;
+  margin: 20px 0 28px 0;
+  font-size: 1rem;
+  max-width: 64ch;
+}
+
+.home-hero-btns .icit-btn{
+  margin-right: 12px;
+}
+
+/* Visual right column */
+.home-hero-right{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-visual{
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.12);
+  background: linear-gradient(180deg, #ffffff, var(--bg));
+}
+
+.hero-image{
+  display:block;
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 400ms ease;
+}
+.hero-visual:hover .hero-image{
+  transform: scale(1.06);
+}
+
+.logo-badge{
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 10px;
+  border-radius: 999px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  box-shadow: 0 4px 14px rgba(16,24,40,0.08);
+}
+
+.logo-badge img{height:28px}
+
+/* Responsive */
+@media (max-width: 900px){
+  .home-hero-container{grid-template-columns:1fr;gap:20px}
+  .home-hero-right{order:-1}
+  .home-hero-title{font-size:2rem}
+}
+
+@media (max-width: 480px){
+  .home-hero-section{padding:36px 16px}
+  .home-hero-title{font-size:1.6rem}
+  .home-hero-sub{font-size:0.95rem}
+  .home-hero-btns .icit-btn{display:inline-block;margin-bottom:8px}
+}

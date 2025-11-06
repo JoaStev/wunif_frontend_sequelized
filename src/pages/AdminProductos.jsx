@@ -8,6 +8,7 @@ export default function AdminProductos() {
   const [error, setError] = useState(null);
   const [form, setForm] = useState(null); // null o { ...campos }
   const [success, setSuccess] = useState(null);
+  const [editId, setEditId] = useState(null);
 
   function fetchProductos() {
     setLoading(true);
@@ -23,7 +24,7 @@ export default function AdminProductos() {
   useEffect(() => { fetchProductos(); }, []);
 
   function handleInput(e) {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     if (name === 'price') {
       // Permitir ingresar 10000, 10.000, 10,000 y convertir a entero
       const clean = value.replace(/\D/g, '');
@@ -34,7 +35,7 @@ export default function AdminProductos() {
   }
 
   function handleNew() {
-    setForm({ name: '', model: '', size: '', price: '', imageUrl: '', isActive: true });
+    setForm({ name: '', model: '', price: '', imageUrl: '', isActive: true });
   }
 
   async function handleSubmit(e) {
@@ -49,6 +50,36 @@ export default function AdminProductos() {
       if (!res.ok) throw new Error((await res.json()).error);
       setForm(null);
       setSuccess('Producto publicado en el catálogo.');
+      fetchProductos();
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  function handleEdit(product) {
+    setEditId(product._id);
+    setForm({
+      name: product.name,
+      model: product.model,
+      price: product.price,
+      imageUrl: product.imageUrl || '',
+      isActive: product.isActive
+    });
+  }
+
+  async function handleUpdate(e) {
+    e.preventDefault();
+    setError(null); setSuccess(null);
+    try {
+      const res = await fetch(`/api/products/${editId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` },
+        body: JSON.stringify(form)
+      });
+      if (!res.ok) throw new Error((await res.json()).error);
+      setForm(null);
+      setEditId(null);
+      setSuccess('Producto actualizado.');
       fetchProductos();
     } catch (err) {
       setError(err.message);
@@ -93,7 +124,8 @@ export default function AdminProductos() {
                   <td>{p.size}</td>
                   <td><span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>{Number(p.price).toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span></td>
                   <td>{p.isActive ? <span style={{ color: '#2EC4B6', fontWeight: 600 }}>Sí</span> : <span style={{ color: '#e53e3e' }}>No</span>}</td>
-                  <td><button className="btn btn-danger" onClick={() => handleDelete(p._id)}>Eliminar</button></td>
+                  <td><button className="btn btn-danger" onClick={() => handleDelete(p._id)}>Eliminar</button>{' '}
+                      <button className="btn btn-secondary" onClick={() => handleEdit(p)}>Editar</button></td>
                 </tr>
               ))}
             </tbody>
@@ -101,16 +133,13 @@ export default function AdminProductos() {
         </div>
       )}
       {form && (
-        <form onSubmit={handleSubmit} className="card" style={{ marginTop: 24, maxWidth: 500 }}>
-          <h3 style={{ fontFamily: 'Poppins', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 16 }}>Nuevo producto</h3>
+        <form onSubmit={editId ? handleUpdate : handleSubmit} className="card" style={{ marginTop: 24, maxWidth: 500 }}>
+          <h3 style={{ fontFamily: 'Poppins', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 16 }}>{editId ? 'Editar producto' : 'Nuevo producto'}</h3>
           <label>Nombre
             <input name="name" placeholder="Nombre" value={form.name} onChange={handleInput} required minLength={3} />
           </label>
           <label>Modelo
             <input name="model" placeholder="Modelo" value={form.model} onChange={handleInput} required minLength={2} />
-          </label>
-          <label>Talla
-            <input name="size" placeholder="Talla" value={form.size} onChange={handleInput} required />
           </label>
           <label>Precio
             <input
@@ -131,8 +160,8 @@ export default function AdminProductos() {
             <input type="checkbox" name="isActive" checked={form.isActive} onChange={e => setForm(f => ({ ...f, isActive: e.target.checked }))} /> Activo en catálogo
           </label>
           <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-            <button className="btn btn-primary" type="submit">Guardar</button>
-            <button className="btn btn-secondary" type="button" onClick={()=>setForm(null)}>Cancelar</button>
+            <button className="btn btn-primary" type="submit">{editId ? 'Actualizar' : 'Guardar'}</button>
+            <button className="btn btn-secondary" type="button" onClick={()=>{setForm(null);setEditId(null);}}>Cancelar</button>
           </div>
         </form>
       )}

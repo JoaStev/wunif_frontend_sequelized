@@ -229,14 +229,15 @@
   border-radius: 12px;
   box-shadow: 0 0 12px #00E0FF33;
 }
-/* --- Admin Navy Premium --- */
+
 .admin-usuarios-container, .admin-mensajes-container {
-  max-width: 900px;
+  min-width: 800px;
+  max-width: 1000px;
   margin: 2.5em auto;
   background: #112240;
-  border-radius: 18px;
+  border-radius: 8px;
   box-shadow: 0 8px 32px 0 rgba(11, 36, 80, 0.25);
-  padding: 2.5rem 2rem 2rem 2rem;
+  padding: 1.5rem 2rem 2rem 2rem;
   animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
 }
 .admin-title {
@@ -461,7 +462,7 @@ body {
 .carrito-modal-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(10,25,47,0.85);
+  background: rgba(153, 179, 251, 0.558);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -469,10 +470,10 @@ body {
   animation: fadeIn .3s;
 }
 .carrito-modal {
-  background: #112240;
+  background: #5490ff;
   border-radius: 18px;
   border: 2px solid #00E0FF;
-  box-shadow: 0 0 32px #00E0FF33;
+  box-shadow: 0 0 32px #62edff33;
   padding: 2.5em 2em 2em 2em;
   min-width: 320px;
   color: #fff;

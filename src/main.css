@@ -57,18 +57,21 @@ input:focus, select:focus, textarea:focus, button:focus {
   outline-offset: 2px;
 }
 
+/* Tarjeta elegante para perfil */
 .card {
-  background: var(--color-white);
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(10,42,102,0.04);
-  padding: 1.5em;
-  margin-bottom: 1.5em;
-  transition: box-shadow 0.2s;
+  background: linear-gradient(135deg, #f8fafc 0%, #e6eef7 100%);
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(20,40,80,0.10);
+  padding: 2.2em 2em;
+  margin-bottom: 2em;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
 }
 
 .card:hover {
-  box-shadow: 0 4px 16px rgba(10,42,102,0.10);
+  box-shadow: 0 12px 36px rgba(20,40,80,0.16);
+  transform: translateY(-2px) scale(1.01);
 }
 
 .navbar {
@@ -106,3 +109,44 @@ input:focus, select:focus, textarea:focus, button:focus {
   text-align: center;
   margin: 2em 0;
 }
+
+/* User dashboard specific styles */
+.user-header {
+  margin-bottom: 1em;
+}
+.user-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.user-welcome h2 { margin: 0; }
+.user-welcome .muted { color: #6b7280; margin: 0.25em 0 0; }
+.user-stats { display: flex; gap: 1em; }
+.stat { text-align: center; background: linear-gradient(180deg,#ffffff,#f8fafc); border-radius: 8px; padding: 0.5em 1em; min-width: 84px; }
+.stat-value { font-weight: 700; color: var(--color-primary); font-size: 1.1em; }
+.stat-label { color: #6b7280; font-size: 0.85em; }
+
+.user-dashboard-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.2em;
+  align-items: start;
+  background: #f4f8fb;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(20,40,80,0.07);
+  margin-top: 2em;
+}
+.user-sidebar { padding: 1em; }
+.user-main {
+  padding: 2em 1em;
+  background: linear-gradient(120deg, #f4f8fb 60%, #e6eef7 100%);
+  border-radius: 24px;
+  min-height: 80vh;
+}
+
+.mini-card { background: #fbfdfe; border: 1px solid #e6f4f2; padding: 0.75em; border-radius: 6px; margin-bottom: 0.5em; }
+
+/* Make user UI visually distinct from admin: softer mint accents */
+.btn-primary { background: var(--color-mint); }
+

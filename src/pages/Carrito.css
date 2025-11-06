@@ -1,0 +1,60 @@
+/* Purchase toast animation */
+@keyframes slideInDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.purchase-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #2EC4B6, #4CAF50, #2EC4B6);
+  background-size: 200% 200%;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(46, 196, 182, 0.3);
+  z-index: 10000;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-align: center;
+  animation: 
+    slideInDown 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+    gradientBG 3s ease infinite;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.purchase-toast.exit {
+  animation: slideOutUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}

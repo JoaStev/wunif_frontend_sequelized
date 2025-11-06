@@ -1,0 +1,126 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Login split layout styles */
+.login-root {
+  display: flex;
+  min-height: 80vh;
+  max-width: 1000px;
+  margin: 3rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
+  background: transparent;
+}
+
+.login-left::before,
+.login-left::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.login-left::before {
+  top: -100px;
+  left: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.login-left::after {
+  bottom: -100px;
+  right: -100px;
+  animation: float2 8s ease-in-out infinite;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-left {
+  flex: 1.2;
+  background: linear-gradient(135deg, 
+    #034ba3 0%, 
+    #2b8cff 45%, 
+    #117aa3 50%,
+    #2b8cff 35%,
+    #1a549b 100%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #ffffff;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.login-left h1 {
+  font-size: 2.4rem;
+  margin: 0 0 12px 0;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+}
+.login-left p {
+  opacity: 0.95;
+  max-width: 360px;
+  position: relative;
+  z-index: 1;
+}
+.login-right {
+  flex: 0.9;
+  background: rgba(134, 195, 252, 0.85);
+  padding: 40px 36px;
+  display: flex;
+  align-items: center;
+}
+.login-card {
+  width: 100%;
+}
+.login-card h2 {
+  margin: 0 0 18px 0;
+  color: #020407;
+}
+label { display:block; margin-top:10px; font-size:0.95rem; color:#0a1b31 }
+input, textarea { width:100%; padding:10px 12px; margin-top:6px; border:1px solid #e6eef7; border-radius:8px; box-sizing:border-box }
+.btn-primary { background: linear-gradient(90deg,#0f7bff,#2b8cff); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer }
+.btn-primary:disabled { opacity:0.6; cursor:default }
+.login-foot { margin-top:14px; font-size:0.9rem; color:#6b7c93 }
+
+@media (max-width: 800px) {
+  .login-root { flex-direction: column; margin: 1.5rem; }
+  .login-left { padding: 28px; }
+  .login-right { padding: 28px; }
+}

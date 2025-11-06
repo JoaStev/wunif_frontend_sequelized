@@ -1,0 +1,14 @@
+.admin-user-cell{
+  font-family: Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.98rem;
+  color: #0f1724; 
+  font-weight: 500;
+}
+
+.admin-user-name{color:#00aeff;font-weight:600}
+.admin-user-email{color:#00aeff;font-size:0.95rem}
+.admin-user-grade{font-size:0.95rem;color:#00aeff}
+.admin-user-role{font-size:0.9rem;color:#00aeff;text-transform:capitalize}
+
+/* pequeña mejora visual para filas admin */
+.admin-row .admin-user-cell{color:#0b4d8c;font-weight:700}

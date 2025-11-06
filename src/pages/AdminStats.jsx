@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PieChart from '../components/PieChart.jsx';
 import { useAuth } from '../context/AuthContext';
 
 export default function AdminStats() {
@@ -32,6 +33,7 @@ export default function AdminStats() {
       </div>
       <div className="card" style={{ marginBottom: 24 }}>
         <h3>Top productos vendidos</h3>
+        <PieChart data={stats.topProductos || []} />
         <ol>
           {stats.topProductos?.map(p => (
             <li key={p._id}>{p.name} ({p.model}) — <b>{p.cantidad}</b> vendidos</li>
